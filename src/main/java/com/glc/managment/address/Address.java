@@ -16,6 +16,8 @@ import java.io.Serializable;
         @Index(name = "address_idx_line1", columnList = "line1")
 })
 public class Address extends AbstractEntity implements Serializable {
+    private static final long serialVersionUID = -7967072951907205357L;
+
     @NotNull(message = "error.validation.country.required")
     @Size(min = 2, max = 5, message = "error.validation.country.invalid.length")
     private String country;

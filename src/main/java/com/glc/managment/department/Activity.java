@@ -16,6 +16,9 @@ import java.util.Date;
         @Index(name = "activity_idx_uuid", columnList = "uuid", unique = true)
 })
 public class Activity extends AbstractEntity implements Serializable {
+
+    private static final long serialVersionUID = 6880688384272953966L;
+
     @NotNull(message = "error.validation.activity.name.required")
     @Size(max = 50, message = "error.validation.activity.name.invalid.length")
     private String name;

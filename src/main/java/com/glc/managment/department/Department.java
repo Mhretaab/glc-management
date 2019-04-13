@@ -18,6 +18,8 @@ import java.util.List;
         @Index(name = "department_idx_uuid", columnList = "uuid", unique = true)
 })
 public class Department extends AbstractEntity implements Serializable {
+    private static final long serialVersionUID = -6531065361459386371L;
+
     @NotNull(message = "error.validation.department.name.required")
     @Size(max = 50, message = "error.validation.department.name.invalid.length")
     private String name;

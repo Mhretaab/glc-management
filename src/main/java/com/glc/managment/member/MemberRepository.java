@@ -13,6 +13,7 @@ import java.util.List;
 public interface MemberRepository extends JpaRepository<Member, Long> {
     Member findByUuid(String uuid);
     Member findByEmail(String email);
+    Member findByEmailIgnoreCase(String email);
     Member findByMobilePhoneNumber(String mobilePhoneNumber);
     Member findByGivenName(String givenName);
     List<Member> findAllByDepartments(List<Department> departments);

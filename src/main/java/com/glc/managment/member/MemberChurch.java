@@ -14,6 +14,8 @@ import java.util.Objects;
 @Entity
 @Table(name = "member_church")
 public class MemberChurch extends AbstractEntity implements Serializable {
+    private static final long serialVersionUID = -3715954794577270092L;
+
     @EmbeddedId
     private MemberChurchId id;
 

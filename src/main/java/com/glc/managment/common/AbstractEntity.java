@@ -19,6 +19,7 @@ import java.util.UUID;
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 public class AbstractEntity implements Serializable{
+    public static final String UUID_FIELD = "uuid";
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "bigserial", name = "id", updatable = false, nullable = false)

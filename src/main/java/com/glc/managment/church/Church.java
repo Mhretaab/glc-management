@@ -25,6 +25,8 @@ import java.util.List;
         @Index(name = "address_idx_email", columnList = "email")
 })
 public class Church extends AbstractEntity implements Serializable {
+    private static final long serialVersionUID = -6321339311569884536L;
+
     @NotNull(message = "error.validation.church.given.name.required")
     @Size(max = 50, message = "error.validation.church.firstName.invalid.length")
     private String name;

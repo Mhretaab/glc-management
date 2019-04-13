@@ -1,6 +1,7 @@
 package com.glc.managment.member;
 
 import com.glc.managment.common.AbstractEntity;
+import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -14,7 +15,7 @@ import java.io.Serializable;
         @Index(name = "role_idx_uuid", columnList = "uuid", unique = true),
         @Index(name = "role_idx_member_name", columnList = "memberId, name", unique = true)
 })
-public class Role extends AbstractEntity implements Serializable {
+public class Role extends AbstractEntity  implements GrantedAuthority, Serializable {
 
     @NotNull(message = "error.validation.role.member.required")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -40,5 +41,10 @@ public class Role extends AbstractEntity implements Serializable {
 
     public void setName(RoleEnum name) {
         this.name = name;
+    }
+
+    @Override
+    public String getAuthority() {
+        return name.name();
     }
 }

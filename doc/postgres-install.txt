@@ -1,0 +1,49 @@
+1. Copy the following into /etc/apt/sources.list.d/pgdg.list
+deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main
+
+2. import repo key
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo apt-get update
+
+3. Install
+sudo apt-get install postgresql-10
+
+4.Enable/start Service
+sudo systemctl enable postgresql.service
+sudo systemctl stop postgresql.service
+
+5. Set db admin password
+sudo su -l postgres
+psql
+\password postgres
+
+
+6. Install Web admin console
+sudo apt-get install fonts-font-awesome pgadmin4
+
+
+7. Install PostGIS
+sudo add-apt-repository ppa:ubuntugis/ppa
+sudo apt-get update
+sudo apt-get install postgis
+
+7.1 (Install postGis on centos 7)
+sudo rpm -Uvh https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm
+sudo yum install epel-release
+sudo yum install postgis2_10
+systemctl restart postgresql-10.service
+
+8. Enable PostGIS on Tangio DB
+sudo -i -u postgres
+psql -d tangio
+CREATE EXTENSION postgis;
+SELECT PostGIS_version();
+
+*The above can also be done on PGAdmin UI using the following (make sure that you are connected to the desired tangio database prior to running the following command)
+CREATE EXTENSION postgis;
+
+9. Enable GIN
+CREATE EXTENSION pg_trgm;
+
+10. Create glc_schema
+CREATE SCHEMA IF NOT EXISTS glc_schema AUTHORIZATION glc_managment;

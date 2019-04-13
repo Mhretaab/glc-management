@@ -28,6 +28,10 @@ import java.util.List;
 })
 public class Member extends AbstractEntity implements Serializable{
 
+    private static final long serialVersionUID = 700445471559859478L;
+
+    public static final String FIELD_CREDENTIALS = "credentials";
+
     @NotNull(message = "error.validation.member.given.name.required")
     @Size(max = 50, message = "error.validation.member.firstName.invalid.length")
     private String givenName;
@@ -289,5 +293,13 @@ public class Member extends AbstractEntity implements Serializable{
 
     public void setRoles(List<Role> roles) {
         this.roles = roles;
+    }
+
+    public boolean hasRole(String roleName){
+        for (Role userRole: roles){
+            if (userRole.getAuthority().equals(roleName)) return true;
+        }
+
+        return false;
     }
 }
