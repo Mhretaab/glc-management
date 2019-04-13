@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layouts/login_layout">
+
+<th:block layout:fragment="scripts_and_embedded_styles">
+    <title th:text="#{ui.app.name}">GLC Managment</title>
+    <script type="text/javascript" th:inline="javascript">
+
+    </script>
+
+    <style>
+        .main-box{
+            width: 20% !important;
+        }
+
+        @media only screen and (max-width: 1024px) {
+            .main-box{
+                width: 88% !important;
+            }
+        }
+
+    </style>
+</th:block>
+<div id="main_content" layout:fragment="main_content">
+    <h6 th:text="#{ui.login.page.title}">Login</h6>
+    <form id="login-form" class="text-left" th:action="@{/ui/login}" method="post">
+        <div class="text-center">
+            <p th:text="${error}"></p>
+            <br/>
+        </div>
+        <div class="main-login-form">
+            <div class="login-group" style="padding-bottom: 15px;">
+                <div class="form-group">
+                    <label for="principal" class="left sr-only" th:text="#{ui.login.page.username.label}">Username</label>
+                    <input type="text" class="form-control" id="principal" name="principal" placeholder="email"/>
+                </div>
+                <div class="form-group">
+                    <label for="credentials" class="left sr-only" th:text="#{ui.login.page.password.label}">Password</label>
+                    <input type="password" class="form-control" id="credentials" name="credentials" placeholder="password" autofocus=""/>
+                </div>
+            </div>
+            <button name="action" type="submit" class="btn btn-raised btn-primary save">Login</button>
+        </div>
+    </form>
+
+    <script type="text/javascript" th:inline="javascript">
+
+        /* <![CDATA[ */
+
+        $(document).ready(function(){
+
+            $("#principal").focus();
+
+        });
+
+        /* ]]> */
+
+    </script>
+</div>
+</html>
