@@ -24,10 +24,11 @@ CREATE DATABASE glc_managment
 CREATE USER glc_managment WITH PASSWORD 'glc_managment';
 GRANT ALL PRIVILEGES ON DATABASE glc_managment TO glc_managment;
 
-7. Install Web admin console
-sudo apt-get install fonts-font-awesome pgadmin4
-
-8. Create glc_schema
+7. Create glc_schema
 sudo -i -u postgres
 psql -d glc_managment
 CREATE SCHEMA IF NOT EXISTS glc_schema AUTHORIZATION glc_managment;
+
+8. Install Web admin console
+sudo apt-get install fonts-font-awesome pgadmin4
+
