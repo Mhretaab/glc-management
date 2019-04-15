@@ -34,9 +34,13 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-cache')
 	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.springframework.boot:spring-boot-starter-web')
-	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.boot:spring-boot-starter-logging')
 	//compile('org.springframework.boot:spring-boot-starter-log4j2')
+
+	//thymeleaf
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	compile("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:2.3.0")
+	compile("org.thymeleaf.extras:thymeleaf-extras-springsecurity4:3.0.2.RELEASE")
 
 	//Postgres
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
@@ -48,15 +52,6 @@ dependencies {
 
 	//Enable auto re-loading
 	compile("org.springframework.boot:spring-boot-devtools")
-
-	compile("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:2.3.0")
-	compile("org.thymeleaf.extras:thymeleaf-extras-springsecurity4:3.0.2.RELEASE")
-
-	//JASPER Reporting
-	compile('junit:junit:4.12')
-	compile('net.sf.jasperreports:jasperreports:6.5.1')
-	compile('net.sf.jasperreports:jasperreports-functions:6.5.1')
-	compile('net.sf.jasperreports:jasperreports-chart-themes:6.6.0')
 
 	//Http Client - used by spring rest template
 	compile('org.apache.httpcomponents:httpclient:4.5.2')

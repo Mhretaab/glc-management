@@ -53,12 +53,15 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public Member findMemberByUuid(String memberUuid) {
-        return null;
+        return memberRepository.findByUuid(memberUuid);
     }
 
     @Override
     public Member createMember(Member member) {
-        return null;
+        if(member.getApprovalStatusEnum() == null){
+            member.setApprovalStatusEnum(ApprovalStatusEnum.NEW_COMER);
+        }
+        return memberRepository.save(member);
     }
 
     @Override

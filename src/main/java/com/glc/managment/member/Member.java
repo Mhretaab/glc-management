@@ -60,7 +60,7 @@ public class Member extends AbstractEntity implements Serializable{
     @Size(min = 36, max = 36, message = "error.validation.member.phoneNumber.invalid.length")
     private String profilePicture;
 
-    @Column(nullable = false, length = 2)
+    @Column(length = 2)
     @Enumerated(value = EnumType.STRING)
     private GenderEnum genderEnum;
 
@@ -100,8 +100,8 @@ public class Member extends AbstractEntity implements Serializable{
     @Column(columnDefinition = "TIMESTAMP WITH TIME ZONE")
     private Date bornAgainDate;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "churchId", nullable = false, columnDefinition = "bigint")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "churchId", columnDefinition = "bigint")
     private Church bornAgainChurch;
 
     @ManyToMany(fetch = FetchType.LAZY)
