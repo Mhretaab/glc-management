@@ -1,12 +1,56 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <title>Title</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--TODO: Use asset-pipe-line-->
+    <link rel="stylesheet" href="/glc-managment/css/material-design-font-style.css"
+          th:href="@{/css/material-design-font-style.css}"/>
+
+    <link rel="stylesheet" href="/glc-managment/css/materialize/materialize.min.css"
+          th:href="@{/css/materialize/materialize.min.css}"/>
+
+    <script type="text/javascript" src="/glc-managment/js/jquery/jquery.min.js"
+            th:src="@{/js/jquery/jquery.min.js}"></script>
+    <script type="text/javascript" src="/glc-managment/js/materialize/materialize.min.js"
+            th:src="@{/js/materialize/materialize.min.js}"></script>
+
+    <script type="text/javascript" src="/glc-managment/js/jquery/jquery.cookie.js"
+            th:src="@{/js/jquery/jquery.cookie.js}"></script>
+    <script type="text/javascript" src="/glc-managment/js/accounting/accounting.min.js"
+            th:src="@{/js/accounting/accounting.min.js}"></script>
+
+    <style>
+        nav{
+            background-color: #080735;
+        }
+        .nav-wrapper{
+            padding-left: 20px;
+        }
+    </style>
 </head>
 <body>
 
-<h1>This is dashboard</h1>
+<nav>
+    <div class="nav-wrapper">
+        <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="#!">one</a></li>
+            <li><a href="#!">two</a></li>
+            <li class="divider"></li>
+            <li><a href="#!">three</a></li>
+        </ul>
 
+        <a href="#" class="brand-logo"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a class='dropdown-button' href='#' data-activates='dropdown1'><i class="material-icons">arrow_drop_down</i></a></li>
+        </ul>
+    </div>
+</nav>
+
+<script>
+    $(document).ready(function(){
+        $('.dropdown-button').dropdown();
+    });
+</script>
 </body>
 </html>

@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Map;
 
@@ -12,6 +13,7 @@ import java.util.Map;
  * Created by mberhe on 12/24/18.
  */
 @Service
+@Transactional
 public class MemberServiceImpl implements MemberService {
 
     private MemberRepository memberRepository;
